@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
+}
+body{
+       background-color: #bad8f2;
+}
+.bg_col{
+    background-color: #d9305c;
+    border-radius: 25px;
+    width: 1000px;
+    gap: 20px;
+}
+.inp_width{
+width: 400px;
+border-radius: 10px;
+}
+
+.font_change{
+   
+  font-family: 'Pacifico', cursive;
+  font-size: 48px;
+  color: #ffd43b;
+  text-align: center;
+  margin: 20px 0;
+
+}
+.search-input {
+  border: none !important;       
+  outline: none !important;     
+  box-shadow: none !important;   
+  background: #f8f9fa;           
+  border-radius: 8px;            
+}
+
+.bg_from_col{
+
+background-color: #e9e9e9;
+}
+.font_col{
+    color: #6e49f9;
+}
+.btn_col1{
+    background-color: #faee81;
+    color: #b1a92d;
+    border-radius: 10px;
+    width: 100px;
+}
+.btn_col2{
+    background-color: #50aa50;
+    color: white;
+    border-radius: 10px;
+    width: 100px;
+}
+.font_change_a{
+   
+
+  color: #ffd43b;
+ text-decoration: none;
+ font-family: 'Pacifico', cursive;
+
+
+}
+a {
+    text-decoration: none;
+}
+.contact_list_bg{
+    border-color:  #ffd43b;
+    width: 100%;
+
+}
