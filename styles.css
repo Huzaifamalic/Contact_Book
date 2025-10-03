@@ -72,3 +72,27 @@ a {
     width: 100%;
 
 }
+/* .icon_position{
+    width: 250px;
+    height: auto;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    
+    
+} */
+.input_mob_tab {
+background-color: #d9305c;
+    border-radius: 15px;
+width: 600px;
+margin: auto;
+
+}
+
+@media (max-width: 768px) {
+  
+  .img_mob_tab img {
+    width: 200px;
+    height: auto;
+  }
+}

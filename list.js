@@ -10,6 +10,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 // 📂 DOM
 const showcontact = document.getElementById("showcontact");
+const search_input = document.querySelector(".search-input");
 
 // 📜 Load Contacts
 async function loadContacts() {
@@ -51,7 +52,17 @@ async function loadContacts() {
 
 // 🗑️ Delete Contact
 window.deleteContact = async function (id) {
-  if (!confirm("Are you sure you want to delete this contact?")) return;
+  const result = await Swal.fire({
+    title: 'Are you sure?',
+    text: "This contact will be permanently deleted!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Yes, delete it!'
+  });
+
+  if (!result.isConfirmed) return;
 
   const { error } = await supabase
     .from("Contact_Book_user_db")
@@ -59,13 +70,24 @@ window.deleteContact = async function (id) {
     .eq("id", id);
 
   if (error) {
-    alert("❌ Failed to delete contact.");
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Failed to delete contact!',
+    });
     console.error(error.message);
   } else {
-    alert("🗑️ Contact deleted!");
+    Swal.fire({
+      icon: 'success',
+      title: 'Deleted!',
+      text: 'Contact deleted successfully.',
+      timer: 1500,
+      showConfirmButton: false
+    });
     loadContacts();
   }
 };
+
 
 // ✏️ Open Edit Modal
 window.openEdit = function (id, name, number, email) {
@@ -91,15 +113,30 @@ window.updateContact = async function () {
     .eq("id", id);
 
   if (error) {
-    alert("❌ Failed to update contact.");
+     Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Failed to update contact!',
+    });
+    
     console.error(error.message);
   } else {
-    alert("✅ Contact updated!");
+    Swal.fire({
+      icon: 'success',
+      title: 'Updated!',
+      text: 'Contact updated successfully.',
+      timer: 1500,
+      showConfirmButton: false
+    });
+   
     const modal = bootstrap.Modal.getInstance(document.getElementById("editModal"));
     modal.hide();
     loadContacts();
   }
 };
 
+
+
 // 🚀 Load on start
 document.addEventListener("DOMContentLoaded", loadContacts);
+
